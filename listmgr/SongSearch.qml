@@ -35,6 +35,16 @@ Page {
 
     Component.onDestruction: {
         g_musicBar.visible = true;
+        var paths = [];
+        for(var i = 0; i < folderListModel.count; i++){
+            var folder = folderListModel.get(i);
+            paths.push(folder.filePath);
+        }
+        var pathTxt = JSON.stringify(paths);
+        if(pathTxt !== g_settings.searchPath){
+            g_settings.searchPath = pathTxt;
+            console.log('paths:'+g_settings.searchPath);
+        }
     }
 
     KxMessageBox {
@@ -259,16 +269,12 @@ Page {
                         visible: true
                         Layout.preferredHeight: 50
                         onClicked: {
-                            var paths = [];
                             songSearch.songDict = {};
                             songSearch.songCount = 0;
                             for(var i = 0; i < folderListModel.count; i++){
                                 var folder = folderListModel.get(i);
                                 fileSearch.search(folder.filePath);
-                                paths.push(folder.filePath);
                             }
-                            g_settings.searchPath = JSON.stringify(paths);
-                            console.log('paths:'+g_settings.searchPath);
                         }
                     }
 

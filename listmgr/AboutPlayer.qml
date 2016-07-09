@@ -64,6 +64,8 @@ Page {
                 var txt = '<br>如果你追求一个纯粹的本地播放器，那你可以试试这个,特别是喜欢听有声书的朋友。'
                 txt += '<br>播放器主页：<a href="http://www.kxtry.com/czys">http://www.kxtry.com/czys</a>'
                 txt += '<br>有声书主页：<a href="http://www.aixuefo.com">http://www.aixuefo.com</a>'
+                txt += '<br>源码仓库：<a href="https://github.com/kxtry/czys">https://github.com/kxtry/czys</a>'
+                txt += '<br>版本号：1.0'
                 text = txt;
             }
 
