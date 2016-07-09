@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>kxmob/KxFileDialog.qml</file>
+        <file>listmgr/SongSearch.qml</file>
+        <file>kxmob/KxFilePage.qml</file>
+        <file>listmgr/ListManager.qml</file>
+        <file>listmgr/SongList.qml</file>
+        <file>listmgr/FolderList.qml</file>
+        <file>kxmob/KxMessageBox.qml</file>
+        <file>fonts/iconfont.ttf</file>
+        <file>czys.qm</file>
+        <file>czys.ts</file>
+        <file>listmgr/MusicBar.qml</file>
+        <file>listmgr/PopSongList.qml</file>
+        <file>listmgr/PlayCenter.qml</file>
+        <file>listmgr/PopHistory.qml</file>
+        <file>listmgr/AboutPlayer.qml</file>
+    </qresource>
+</RCC>
