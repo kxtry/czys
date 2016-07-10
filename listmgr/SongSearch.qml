@@ -45,6 +45,9 @@ Page {
             g_settings.searchPath = pathTxt;
             console.log('paths:'+g_settings.searchPath);
         }
+
+        msgbox.close();
+        fileDialog.close();
     }
 
     KxMessageBox {

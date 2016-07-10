@@ -18,6 +18,7 @@ Page {
     Component.onDestruction: {
         g_musicBar.visible = true;
         g_playMusic.playlistChanged.disconnect(onPlaylistChanged);
+        dlgHistory.close();
     }
 
     function onPlaylistChanged(){
