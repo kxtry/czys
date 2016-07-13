@@ -38,6 +38,12 @@ int main(int argc, char *argv[])
 
     QQuickStyle::setStyle("material");
 
+    qputenv("QT_QUICK_CONTROLS_MATERIAL_THEME", "Light");
+    qputenv("QT_QUICK_CONTROLS_MATERIAL_ACCENT", "#41cd52");
+    qputenv("QT_QUICK_CONTROLS_MATERIAL_PRIMARY", "#41cd52");
+    qputenv("QT_QUICK_CONTROLS_MATERIAL_FOREGROUND", "Cyan");
+    qputenv("QT_QUICK_CONTROLS_MATERIAL_BACKGROUND", "#000000");
+
     qmlRegisterType<KxFileSearch>("KxFileSearch", 1,0, "KxFileSearch");
     qmlRegisterType<KxTagParser>("KxTagParser", 1,0, "KxTagParser");
     qmlRegisterType<KxBluetooth>("KxBluetooth", 1,0, "KxBluetooth");
