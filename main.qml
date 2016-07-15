@@ -5,6 +5,8 @@ import QtQuick.Controls.Material 2.0
 import QtMultimedia 5.6
 import Qt.labs.settings 1.0
 import KxBluetooth 1.0
+import QtGraphicalEffects 1.0
+
 import "kxmob"
 import "listmgr"
 
@@ -15,6 +17,14 @@ ApplicationWindow {
     height: 520
 
     property bool exitApp:false
+
+
+    Material.background: Material.color('white')
+    Material.foreground: Material.color('blue')
+    //Material.accent: Material.color('yellow')
+    Material.primary: Material.color('red')
+    Material.theme: Material.Light
+
 
     Settings {
         id: g_settings
