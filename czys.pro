@@ -19,7 +19,8 @@ SOURCES += main.cpp \
     kxmob/KxQuickView.cpp \
     kxmob/KxTagParser.cpp \
     kxmob/KxBluetooth.cpp \
-    kxmob/KxDesktopServices.cpp
+    kxmob/KxDesktopServices.cpp \
+    kxmob/KxTheme.cpp
 
 RESOURCES += qml.qrc
 
@@ -43,7 +44,8 @@ HEADERS += \
     kxmob/KxQuickView.h \
     kxmob/KxTagParser.h \
     kxmob/KxBluetooth.h \
-    kxmob/KxDesktopServices.h
+    kxmob/KxDesktopServices.h \
+    kxmob/KxTheme.h
 
 DEFINES += MAKE_TAGLIB_LIB
 DEFINES += TAGLIB_STATIC=1

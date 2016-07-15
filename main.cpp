@@ -17,6 +17,7 @@
 #include "kxmob/KxTagParser.h"
 #include "kxmob/KxBluetooth.h"
 #include "kxmob/KxDesktopServices.h"
+#include "kxmob/KxTheme.h"
 
 int main(int argc, char *argv[])
 {
@@ -42,6 +43,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<KxTagParser>("KxTagParser", 1,0, "KxTagParser");
     qmlRegisterType<KxBluetooth>("KxBluetooth", 1,0, "KxBluetooth");
     qmlRegisterType<KxDesktopServices>("KxDesktopServices", 1,0, "KxDesktopServices");
+    qmlRegisterType<QObject>("KxObject", 1, 0, "KxObject");
 
     QQmlApplicationEngine engine;
     QQmlContext *qmlContext = engine.rootContext();

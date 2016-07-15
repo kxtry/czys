@@ -32,6 +32,9 @@ Pane {
         id:listView
         currentIndex:-1
 
+        Material.background:g_theme.accent
+        Material.foreground:g_theme.foreground
+
         model: ListModel{
             id:listModel
         }
