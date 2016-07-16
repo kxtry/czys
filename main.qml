@@ -18,14 +18,6 @@ ApplicationWindow {
 
     property bool exitApp:false
 
-
-    Material.background: Material.color('white')
-    Material.foreground: Material.color('blue')
-    //Material.accent: Material.color('yellow')
-    Material.primary: Material.color('red')
-    Material.theme: Material.Light
-
-
     Settings {
         id: g_settings
         property string musicAll
