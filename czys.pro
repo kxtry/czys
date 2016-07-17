@@ -33,7 +33,8 @@ DISTFILES += \
     android/AndroidManifest.xml \
     android/res/values/libs.xml \
     android/build.gradle \
-    listmgr/MusicBar.qml
+    listmgr/MusicBar.qml \
+    kxmob/KxMenu.qml
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
 
