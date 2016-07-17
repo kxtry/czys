@@ -6,11 +6,7 @@ import QtQml.Models 2.1
 
 Item {
 
-    default property alias col: myCol.children
-    Column {
-        id:myCol
-        anchors.fill: parent
-    }
+     property alias col: abitems
 
     onColChanged: {
         console.log('menuListModel.count=')
