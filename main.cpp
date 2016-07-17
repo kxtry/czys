@@ -17,7 +17,6 @@
 #include "kxmob/KxTagParser.h"
 #include "kxmob/KxBluetooth.h"
 #include "kxmob/KxDesktopServices.h"
-#include "kxmob/KxTheme.h"
 
 int main(int argc, char *argv[])
 {

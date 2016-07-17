@@ -13,12 +13,18 @@ Page {
 
     property variant musicAll
 
+    Material.background: g_theme.background
 
     Component.onCompleted: {
         g_listmgr.musicAll = JSON.parse(g_settings.musicAll);
     }
 
-    header: ToolBar {
+    header: Rectangle {
+        width:parent.width
+        height:g_theme.topbar_height
+        color:g_theme.topbar_background
+
+        Material.foreground: g_theme.topbar_foreground
         RowLayout {
             spacing: 20
             anchors.fill: parent
@@ -36,6 +42,7 @@ Page {
                 id: titleLabel
                 text: '纯真有声'
                 font.pixelSize: 20
+                font.bold: true
                 elide: Label.ElideRight
                 horizontalAlignment: Qt.AlignHCenter
                 verticalAlignment: Qt.AlignVCenter
@@ -53,6 +60,8 @@ Page {
                 Menu {
                     id: optionsMenu
                     x: parent.width - width
+                    y: g_theme.topbar_height-1
+                    modal:true
                     transformOrigin: Menu.TopRight
 
                     MenuItem {
@@ -73,6 +82,7 @@ Page {
                             g_window.close();
                         }
                     }
+
                 }
             }
         }
@@ -96,32 +106,42 @@ Page {
     Pane{
         padding: 0
         anchors.fill: parent
+
+        Material.background: g_theme.alphaLv5
+
         TabBar {
             id: tabBar
             width: parent.width
             anchors.top: parent.top
             currentIndex: swipeView.currentIndex
 
-            background: Item {
+            Material.accent: g_theme.tabbar_accent
+            Material.foreground: g_theme.tabbar_foreground
+            Material.background: g_theme.tabbar_background
+
+            background: Rectangle {
+                color:g_theme.alphaLv3
                 Rectangle{
                     x:0
                     y:parent.height - 1
                     width:parent.width
                     height:1
-                    color:"grey"
+                    color: g_theme.tabbar_line
                 }
             }
 
             TabButton {
                 text: qsTr("\ue620Song")
                 font.family: "iconfont"
-                font.pixelSize: 18
+                font.pixelSize: 16
+                font.bold: checked ? true : false
             }
 
             TabButton {
                 text: qsTr("\ue61bFolder")
                 font.family: "iconfont"
-                font.pixelSize: 18
+                font.pixelSize: 16
+                font.bold: checked ? true : false
             }
         }
 
@@ -131,6 +151,8 @@ Page {
             anchors.topMargin: tabBar.height
             anchors.bottomMargin: g_musicBar.barHeight
             currentIndex: tabBar.currentIndex
+
+            Material.background: g_theme.alphaLv2
 
             SongList{
                 id:songList

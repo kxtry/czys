@@ -16,5 +16,6 @@
         <file>listmgr/PlayCenter.qml</file>
         <file>listmgr/PopHistory.qml</file>
         <file>listmgr/AboutPlayer.qml</file>
+        <file>listmgr/Theme.qml</file>
     </qresource>
 </RCC>

@@ -87,6 +87,8 @@ Popup {
             clip:true
             currentIndex: -1
 
+            boundsBehavior: Flickable.StopAtBounds
+
             id:listView
 
             model: ListModel{

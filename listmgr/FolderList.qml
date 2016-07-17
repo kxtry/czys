@@ -43,7 +43,7 @@ Pane {
             Rectangle {
                 width: listView.width
                 height: 55
-                color:maMouse.pressed ? "#D3D3D3" : Material.background
+                color:maMouse.pressed ? Material.accent : Material.background
                 Rectangle{
                     x:0
                     y:0

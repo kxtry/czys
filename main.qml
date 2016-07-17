@@ -29,12 +29,8 @@ ApplicationWindow {
         property string searchPath
     }
 
-    KxObject {
+    Theme {
         id:g_theme
-        property color accent: Material.color(Material.Red)
-        property color background: Material.color(Qt.blue)
-        property color foreground: Material.color(Qt.white)
-        property color primary: Material.color(Material.Teal)
     }
 
     Component.onCompleted: {
@@ -43,6 +39,7 @@ ApplicationWindow {
     StackView{
         id:g_stackView
         anchors.fill: parent
+
         initialItem: ListManager{
         }
 
