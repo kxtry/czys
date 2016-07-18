@@ -33,16 +33,6 @@ ApplicationWindow {
         id:g_theme
     }
 
-    KxMenu{
-        id:g_menu
-        Label {
-            text: qsTr("SongSearch")
-        }
-        Label {
-            text: qsTr("SongS2earch")
-        }
-    }
-
 
     Component.onCompleted: {
     }

@@ -56,7 +56,7 @@ Page {
                     optionsMenu.open()
                 }
 
-                Menu {
+                KxMenu {
                     id: optionsMenu
                     x: parent.width - width
                     y: g_theme.topbar_height-1
@@ -64,48 +64,9 @@ Page {
                     clip: false
                     transformOrigin: Menu.TopRight
 
-                    property int backgroundWidth:100;
-                    property int backgroundHeight:100;
-                    contentHeight: backgroundHeight
-                    contentWidth: backgroundWidth
-                    height:backgroundHeight
-                    width:backgroundWidth
+                    backgroundColor: g_theme.lightThemeColor
 
-                    Component.onCompleted: {
-                        var w = 0,h = 0;
-                        var parent;
-                        for(var id in contentData){
-                            var item = contentData[id];
-                            h += item.implicitHeight;
-                            if(w < item.implicitWidth){
-                                w = item.implicitWidth;
-                            }
-                            parent = item.parent;
-                        }
-                        //+topMargin+bottomMargin+topPadding+bottomPadding
-                        //+leftMargin+rightMargin+leftPadding+rightPadding
-                        backgroundHeight = h;
-                        backgroundWidth = w;// This is available in all editors.
-                        contentItem.width = w;
-                        contentItem.height = h;
-                        background.width = w;
-                        background.height = h;
-                        parent.width = w;
-                        parent.height = h;
-                        console.log('parent:'+parent.toString())
-                    }
-                    background:Rectangle{
-                        implicitWidth: optionsMenu.backgroundWidth
-                        implicitHeight: optionsMenu.backgroundHeight
-                        //color:'white'
-                    }
 
-//                    background: Rectangle {
-//                              implicitWidth: 200
-//                              implicitHeight: 200
-//                              color: "#ffffff"
-//                              border.color: "#353637"
-//                          }
                     MenuItem {
                         text: '清空列表'
                         onTriggered: {
@@ -124,7 +85,6 @@ Page {
                             g_window.close();
                         }
                     }
-
                 }
             }
         }

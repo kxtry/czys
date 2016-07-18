@@ -4,30 +4,21 @@ import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
 import QtQml.Models 2.1
 
-Item {
-
-     property alias col: abitems
-
-    onColChanged: {
-        console.log('menuListModel.count=')
-        console.log('menuListModel.count='+col.count)
-    }
+Menu {
+    property alias backgroundColor: myback.color
+    property int menuWidth: 180
 
     Component.onCompleted: {
-        var w = 0,h = 0;
-
-
-
+        //菜单必须设置背景宽度，才能正确显示文本，这应该是它的一个BUG。
+        if(menuWidth < 100){
+            menuWidth = 100;
+        }
     }
 
-//    ObjectModel {
-//        id: menuListModel;
-//    }
-
-//    contentItem:ListView{
-//        anchors.fill: parent
-//        model:menuListModel
-//    }
+    background:Rectangle{
+        id:myback
+        implicitWidth: menuWidth
+    }
 }
 
 
