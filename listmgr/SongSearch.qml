@@ -15,6 +15,8 @@ Page {
 
     signal result(variant songs);
 
+    Material.background: g_theme.themeColor
+
     Component.onCompleted: {
         songDict = {}
         songCount = 0;
@@ -82,10 +84,14 @@ Page {
     }
 
     contentItem:ColumnLayout{
-        spacing: 20
-
-        ToolBar {
+        spacing: 0
+        Rectangle {
             Layout.fillWidth: true
+            Layout.preferredHeight: g_theme.topbar_height
+            color:g_theme.topbar_background
+
+            Material.foreground: g_theme.topbar_foreground
+
             RowLayout {
                 spacing: 20
                 anchors.fill: parent
@@ -137,9 +143,12 @@ Page {
             }
         }
 
-        Item {
+        Pane {
             Layout.fillHeight: true
             Layout.fillWidth: true
+            padding: 0
+
+            Material.background: g_theme.alphaLv4
 
             Label {
                 anchors.fill: parent
@@ -235,6 +244,7 @@ Page {
                         padding: 7
                         id: busySearch
                         visible:false
+                        Material.accent: g_theme.themeColor
                     }
                     Label {
                         Layout.fillHeight: true
@@ -261,16 +271,21 @@ Page {
                     Layout.preferredHeight: 50
                     Layout.bottomMargin: 30
 
+                    Material.background: g_theme.themeColor
+
                     Item{
                         Layout.fillWidth: true
                         Layout.preferredHeight: 50
                     }
+
 
                     Button{
                         id: btnSearch
                         text:qsTr("Search")
                         visible: true
                         Layout.preferredHeight: 50
+
+
                         onClicked: {
                             songSearch.songDict = {};
                             songSearch.songCount = 0;
