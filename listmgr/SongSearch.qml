@@ -10,7 +10,7 @@ Page {
     id:songSearch
 
     property StackView stackView
-    property variant songDict
+    property var songDict
     property int songCount: 0
 
     signal result(variant songs);

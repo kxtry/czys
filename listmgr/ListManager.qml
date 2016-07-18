@@ -10,9 +10,9 @@ Page {
     padding: 0
     focus: true
 
-    property variant musicAll
+    property var musicAll
 
-    Material.background: g_theme.background
+    Material.background: g_theme.themeColor
 
     Component.onCompleted: {
         g_listmgr.musicAll = JSON.parse(g_settings.musicAll);
@@ -60,12 +60,8 @@ Page {
                     id: optionsMenu
                     x: parent.width - width
                     y: g_theme.topbar_height-1
-                    modal:true
-                    clip: false
+
                     transformOrigin: Menu.TopRight
-
-                    backgroundColor: g_theme.lightThemeColor
-
 
                     MenuItem {
                         text: '清空列表'

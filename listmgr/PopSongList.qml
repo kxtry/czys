@@ -11,7 +11,15 @@ Page {
     property alias musicAll:mylist.musicAll
     property string folderName
 
-    header: ToolBar {
+    Material.background: g_theme.themeColor
+
+    header: Rectangle {
+        width:parent.width
+        height:g_theme.topbar_height
+        color:g_theme.topbar_background
+
+        Material.foreground: g_theme.topbar_foreground
+
         RowLayout {
             spacing: 20
             anchors.fill: parent
@@ -30,6 +38,7 @@ Page {
                 id: titleLabel
                 text: folderName
                 font.pixelSize: 20
+                font.bold: true
                 elide: Label.ElideRight
                 horizontalAlignment: Qt.AlignHCenter
                 verticalAlignment: Qt.AlignVCenter
@@ -42,10 +51,18 @@ Page {
         }
     }
 
-    SongList{
-        id:mylist
-        listName:folderName
+    Pane{
+        padding: 0
         anchors.fill: parent
-        anchors.bottomMargin: g_musicBar.barHeight
+
+        Material.background: g_theme.alphaLv4
+
+        SongList{
+            id:mylist
+            listName:folderName
+            anchors.fill: parent
+            anchors.bottomMargin: g_musicBar.barHeight
+        }
+
     }
 }
