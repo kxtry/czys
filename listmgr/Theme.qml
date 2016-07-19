@@ -1,9 +1,8 @@
 ﻿import QtQuick 2.6
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
-import KxObject 1.0
 
-KxObject {
+QtObject {
     property color themeColor:Material.color(Material.Green)
     property color lightThemeColor:Material.color(Material.LightGreen)
 

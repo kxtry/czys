@@ -25,6 +25,8 @@ Popup {
 
     signal done(string path);
 
+    Material.background: g_theme.themeColor
+
     onVisibleChanged: {
         if(visible && reinit){
             stackView.replace(fileComponent, {"path":'/'})
@@ -105,7 +107,7 @@ Popup {
 
                 delegate: Rectangle {
                     width: listView.width
-                    color: listView.currentIndex === index ? "#D3D3D3" : Material.background
+                    color: listView.currentIndex === index ? g_theme.list_accent : g_theme.list_background
                     height: 40
                     Rectangle{
                         x:0
@@ -113,7 +115,7 @@ Popup {
                         width:parent.width
                         height:1
 
-                        color:Material.color(Material.Grey)
+                        color:g_theme.list_line
                         visible:index === 0 ? true : false
                     }
                     RowLayout{
@@ -139,7 +141,7 @@ Popup {
                         y:parent.height - 1
                         width:listView.width
                         height:1
-                        color:Material.color(Material.Grey)
+                        color:g_theme.list_line
                     }
 
                     MouseArea{
@@ -235,6 +237,7 @@ Popup {
         anchors.fill: parent
         initialItem: fileComponent
 
+//        Material.background: g_theme.alphaLv1
 
         pushEnter: Transition {
         }

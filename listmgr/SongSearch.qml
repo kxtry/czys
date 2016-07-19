@@ -128,9 +128,10 @@ Page {
                         optionsMenu.open()
                     }
 
-                    Menu {
+                    KxMenu {
                         id: optionsMenu
                         x: parent.width - width
+                        y: g_theme.topbar_height
                         transformOrigin: Menu.TopRight
                         MenuItem {
                             text: '添加搜索目录'

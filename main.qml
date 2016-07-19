@@ -5,7 +5,6 @@ import QtQuick.Controls.Material 2.0
 import QtMultimedia 5.6
 import Qt.labs.settings 1.0
 import KxBluetooth 1.0
-import KxObject 1.0
 import "kxmob"
 import "listmgr"
 

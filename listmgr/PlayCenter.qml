@@ -178,6 +178,9 @@ Page {
                 Layout.fillWidth: true
                 Layout.bottomMargin: 20
                 spacing: 10
+
+                Material.foreground: g_theme.themeColor
+
                 Rectangle{
                     Layout.preferredHeight: 1
                     Layout.fillWidth: true
