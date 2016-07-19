@@ -61,6 +61,16 @@ Popup {
         g_settings.history = JSON.stringify(musics);
     }
 
+    background: Rectangle{
+        color:g_theme.themeColor
+        radius: 5
+        Rectangle{
+            anchors.fill: parent
+            color:g_theme.alphaLv4
+            radius: 5
+        }
+    }
+
     contentItem:ColumnLayout{
         spacing:0
         Label{
@@ -100,13 +110,13 @@ Popup {
                 Rectangle {
                     width: listView.width
                     height: 45
-                    color:listView.currentIndex === index ? "#D3D3D3" : Material.background
+                    color:listView.currentIndex === index ? g_theme.list_accent : g_theme.list_background
                     Rectangle{
                         x:0
                         y:0
                         width:parent.width
                         height:1
-                        color:Material.color(Material.Grey)
+                        color:g_theme.list_line
                         visible:index === 0 ? true : false
                     }
                     RowLayout{
@@ -142,7 +152,7 @@ Popup {
                         y:parent.height - 1
                         width:parent.width
                         height:1
-                        color:Material.color(Material.Grey)
+                        color:g_theme.list_line
                     }
                     MouseArea{
                         id:maMouse

@@ -33,6 +33,16 @@ Popup {
         }
     }
 
+    background: Rectangle{
+        color:g_theme.themeColor
+        radius: 5
+        Rectangle{
+            anchors.fill: parent
+            color:g_theme.alphaLv4
+            radius: 5
+        }
+    }
+
     Component{
         id: fileComponent
 

@@ -179,7 +179,7 @@ Page {
                 Layout.bottomMargin: 20
                 spacing: 10
 
-                Material.foreground: g_theme.themeColor
+
 
                 Rectangle{
                     Layout.preferredHeight: 1
