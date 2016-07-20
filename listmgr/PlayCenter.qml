@@ -9,6 +9,8 @@ Page {
     padding: 0
     clip:true
 
+    Material.background: g_theme.themeColor
+
     Component.onCompleted: {
         g_musicBar.visible = false;
         resetListModel();
@@ -18,6 +20,7 @@ Page {
     Component.onDestruction: {
         g_musicBar.visible = true;
         g_playMusic.playlistChanged.disconnect(onPlaylistChanged);
+        dlgHistory.close();
     }
 
     function onPlaylistChanged(){
@@ -46,41 +49,53 @@ Page {
         placeholderText: g_playMusic.listname
     }
 
-    ColumnLayout{
-        anchors.fill: parent
-        ToolBar {
-            Layout.fillWidth: true
-            RowLayout {
-                spacing: 20
-                anchors.fill: parent
+    Rectangle {
+        x:0
+        y:0
+        width:parent.width
+        height:g_theme.topbar_height
+        color:g_theme.topbar_background
 
-                ToolButton {
-                    id:downArrow
-                    text:"\ue62d"
-                    font.family: "iconfont"
-                    font.pixelSize: 24
-                    onClicked: {
-                        g_stackView.pop()
-                    }
-                }
+        Material.foreground: g_theme.topbar_foreground
 
-                Label {
-                    text: g_playMusic.listname
-                    font.pixelSize: 20
-                    elide: Label.ElideRight
-                    horizontalAlignment: Qt.AlignHCenter
-                    verticalAlignment: Qt.AlignVCenter
-                    Layout.fillWidth: true
-                }
+        RowLayout {
+            spacing: 20
+            anchors.fill: parent
 
-                Item{
-                    width:downArrow.width
+            ToolButton {
+                id:downArrow
+                text:"\ue62d"
+                font.family: "iconfont"
+                font.pixelSize: 24
+                onClicked: {
+                    g_stackView.pop()
                 }
             }
+
+            Label {
+                text: g_playMusic.listname
+                font.pixelSize: 20
+                font.bold: true
+                elide: Label.ElideRight
+                horizontalAlignment: Qt.AlignHCenter
+                verticalAlignment: Qt.AlignVCenter
+                Layout.fillWidth: true
+            }
+
+            Item{
+                width:downArrow.width
+            }
         }
+    }
+    Pane{
+        padding: 0
+        anchors.topMargin: g_theme.topbar_height
+        anchors.fill: parent
+
+        Material.background: g_theme.alphaLv4
+
         ColumnLayout{
-            Layout.fillHeight: true
-            Layout.fillWidth: true
+            anchors.fill: parent
             spacing: 0
             ListView {
                 Layout.fillHeight: true
@@ -98,14 +113,14 @@ Page {
                     Rectangle {
                         width: listView.width
                         height: 35
-                        color:maMouse.pressed ? "#D3D3D3" : Material.background
+                        color:maMouse.pressed ? g_theme.list_accent : g_theme.list_background
                         Rectangle{
                             x:0
                             y:0
                             z:1
                             width:parent.width
                             height:1
-                            color:Material.color(Material.Grey)
+                            color:g_theme.list_line
                             visible:index === 0 ? true : false
                         }
                         Text {
@@ -140,7 +155,7 @@ Page {
                             z:1
                             width:parent.width
                             height:1
-                            color:Material.color(Material.Grey)
+                            color:g_theme.list_line
                         }
                         MouseArea{
                             id:maMouse
@@ -163,6 +178,9 @@ Page {
                 Layout.fillWidth: true
                 Layout.bottomMargin: 20
                 spacing: 10
+
+
+
                 Rectangle{
                     Layout.preferredHeight: 1
                     Layout.fillWidth: true

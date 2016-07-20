@@ -25,10 +25,21 @@ Popup {
         console.log('width:'+width+',height:'+height)
     }
 
+    background: Rectangle{
+        color:g_theme.themeColor
+        radius: 5
+        Rectangle{
+            anchors.fill: parent
+            color:g_theme.alphaLv4
+            radius: 5
+        }
+    }
+
     contentItem: ColumnLayout {
         id: msgColumn
         spacing: 20
 
+        Material.background:g_theme.themeColor
         Label {
             text: title
             font.bold: true
@@ -45,6 +56,7 @@ Popup {
         RowLayout {
             spacing: 10
 
+            Material.background:g_theme.themeColor
             Button {
                 id: okButton
                 text: qsTr("Ok")

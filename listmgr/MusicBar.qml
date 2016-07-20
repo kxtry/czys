@@ -17,6 +17,9 @@ Pane {
 
     signal clicked();
 
+    Material.background: g_theme.musicbar_background
+    Material.foreground: g_theme.musicbar_foreground
+
     Component.onCompleted: {
         g_playMusic.playing.connect(onPlaying);
         g_playMusic.paused.connect(onPaused);
@@ -50,14 +53,14 @@ Pane {
         Rectangle {
             Layout.preferredHeight: 1
             Layout.fillWidth: true
-            color:Material.color(Material.Grey)
+            color:g_theme.musicbar_line
 
             Rectangle {
                 x:0
                 y:0
                 width: g_playMusic.position / g_playMusic.duration * parent.width
-                height:2
-                color:Material.accent
+                height:3
+                color:g_theme.musicbar_slider
             }
         }
 
@@ -94,7 +97,7 @@ Pane {
         Rectangle {
             Layout.preferredHeight: 1
             Layout.fillWidth: true
-            color:Material.color(Material.Grey)
+            color:g_theme.musicbar_line
         }
     }
 

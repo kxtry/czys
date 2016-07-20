@@ -30,13 +30,18 @@ ApplicationWindow {
         property string searchPath
     }
 
-    Component.onCompleted: {
+    Theme {
+        id:g_theme
+    }
 
+
+    Component.onCompleted: {
     }
 
     StackView{
         id:g_stackView
         anchors.fill: parent
+
         initialItem: ListManager{
         }
 

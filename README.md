@@ -14,9 +14,13 @@
 <br>JDK>1.8
 <br><a href="http://www.kxtry.com/qtandroid">安装参考http://www.kxtry.com/qtandroid</a>
 <br>
-<br>![alt text](http://www.kxtry.com/wp-content/uploads/2014/07/Screenshot_2016-07-09-23-27-40-096.jpeg)
-<br>![alt text](http://www.kxtry.com/wp-content/uploads/2014/07/Screenshot_2016-07-09-23-28-05-778.jpeg)
-<br>![alt text](http://www.kxtry.com/wp-content/uploads/2014/07/Screenshot_2016-07-09-23-31-00-988.jpeg)
-<br>![alt text](http://www.kxtry.com/wp-content/uploads/2014/07/Screenshot_2016-07-09-23-24-14-150.jpeg)
-<br>![alt text](http://www.kxtry.com/wp-content/uploads/2014/07/Screenshot_2016-07-09-23-26-50-224.jpeg)
-<br>![alt text](http://www.kxtry.com/wp-content/uploads/2014/07/Screenshot_2016-07-09-23-27-25-911.jpeg)
+<br>当前版本是1.1
+<br>
+<br>版本1.1变更：
+<br>增加了皮肤主题，默认为绿色，也可轻松定制为其它颜色。
+<br>
+<br>![alt text](http://www.kxtry.com/wp-content/uploads/2014/07/1-168x300.jpeg)
+<br>![alt text](http://www.kxtry.com/wp-content/uploads/2014/07/2-168x300.jpeg)
+<br>![alt text](http://www.kxtry.com/wp-content/uploads/2014/07/4-168x300.jpeg)
+<br>![alt text](http://www.kxtry.com/wp-content/uploads/2014/07/5-168x300.jpeg)
+<br>![alt text](http://www.kxtry.com/wp-content/uploads/2014/07/6-168x300.jpeg)

@@ -8,7 +8,7 @@ Pane {
     padding: 0
     clip:true
 
-    property variant musicAll
+    property var musicAll
     property string listName: '所有音乐'
 
     onMusicAllChanged: {
@@ -41,13 +41,13 @@ Pane {
             Rectangle {
                 width: listView.width
                 height: 55
-                color:maMouse.pressed ? "#D3D3D3" : Material.background
+                color:maMouse.pressed ? g_theme.list_accent : g_theme.list_background
                 Rectangle{
                     x:0
                     y:0
                     width:parent.width
                     height:1
-                    color:Material.color(Material.Grey)
+                    color:g_theme.list_line
                     visible:index === 0 ? true : false
                 }
                 ColumnLayout{
@@ -82,7 +82,7 @@ Pane {
                     y:parent.height - 1
                     width:parent.width
                     height:1
-                    color:Material.color(Material.Grey)
+                    color:g_theme.list_line
                 }
                 MouseArea{
                     id:maMouse
@@ -111,5 +111,4 @@ Pane {
         delegate: songDelegate
         ScrollIndicator.vertical: ScrollIndicator { }
     }
-
 }
