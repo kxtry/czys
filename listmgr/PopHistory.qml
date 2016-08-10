@@ -47,6 +47,7 @@ Popup {
         var history = JSON.parse(g_settings.history);
         for(i = 0; i < history.length; i++){
             var info = history[i];
+            console.log(JSON.stringify(info));
             historyListModel.append(info)
         }
         listView.currentIndex = idx;
@@ -230,7 +231,7 @@ Popup {
                     }
 
                     var info = historyListModel.get(listView.currentIndex);
-                    g_playMusic.resetPlayList(info.items, info.name, true);
+                    g_playMusic.resetPlayList(JSON.parse(info.items), info.name, true);
                     g_playMusic.playIndex(info.playidx, info.seekpos, false);
                     dlgPopup.close();
                 }

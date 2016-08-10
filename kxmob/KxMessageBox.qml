@@ -61,6 +61,7 @@ Popup {
                 id: okButton
                 text: qsTr("Ok")
                 onClicked: {
+                    msgbox.visible = false;
                     msgbox.close()
                     msgbox.result(1)
                 }
@@ -72,8 +73,9 @@ Popup {
                 id: cancelButton
                 text: qsTr("Cancel")
                 onClicked: {
-                    msgbox.close()
-                    msgbox.result(0)
+                    msgbox.visible = false;
+                    msgbox.close();
+                    msgbox.result(0);
                 }
                 Layout.preferredWidth: 0
                 Layout.fillWidth: true

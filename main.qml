@@ -112,12 +112,12 @@ ApplicationWindow {
             }
         }
         function resetPlayList(items, name, save){
-            console.log('items:'+name+',save:'+save);
-//            if(listname !== '' && listname !== name && save){
-//                dlgTip.params = {"name":name, "items":items};
-//                dlgTip.open();
-//                return;
-//            }
+            console.log('name:'+name+',save:'+save);
+            if(listname !== '' && listname !== name && save){
+                dlgTip.params = {"name":name, "items":items};
+                dlgTip.open();
+                return;
+            }
             var pltxt = JSON.stringify({name:name, items:items});
             if(g_settings.playlist !== pltxt){
                 g_settings.playlist = pltxt;
@@ -140,13 +140,12 @@ ApplicationWindow {
         }
 
         function playIndex(idx, iseek, bplay){
-            console.log('idx:'+idx+',iseek:'+iseek+',on:'+bplay);
-//            if(dlgTip.visible){
-//                dlgTip.params['idx'] = idx;
-//                dlgTip.params['iseek'] = iseek;
-//                dlgTip.params['bplay'] = bplay;
-//                return;
-//            }
+            if(dlgTip.visible){
+                dlgTip.params['idx'] = idx;
+                dlgTip.params['iseek'] = iseek;
+                dlgTip.params['bplay'] = bplay;
+                return;
+            }
             playlist.currentIndex = idx;
             if(iseek > 0){
                 seek(iseek);
@@ -223,11 +222,11 @@ ApplicationWindow {
 
         onResult:{
             if(val === 1){
-                g_playMusic.savePlayProcess();
-                g_playMusic.resetPlayList(params['items'], params['name'], false);
-                if(typeof(params['idx']) !== 'undefined'){
-                    g_playMusic.playIndex(params['idx'], params['iseek'], params['bplay']);
-                }
+                g_playMusic.savePlayProcess();                
+            }
+            g_playMusic.resetPlayList(params['items'], params['name'], false);
+            if(typeof(params['idx']) !== 'undefined'){
+                g_playMusic.playIndex(params['idx'], params['iseek'], params['bplay']);
             }
         }
     }
