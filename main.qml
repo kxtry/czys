@@ -74,12 +74,50 @@ ApplicationWindow {
         Component.onCompleted: {
             var list = JSON.parse(g_settings.playlist);
             if(list.items.length > 0){
-                resetPlayList(list.items, list.name);
+                resetPlayList(list.items, list.name, false);
                 playIndex(g_settings.playidx, g_settings.seekpos, false)
             }
         }
 
-        function resetPlayList(items, name){
+        function savePlayProcess(){
+            var items = []
+            for(var i = 0; i < g_playMusic.playlist.itemCount; i++){
+                var url = g_playMusic.playlist.itemSource(i);
+                items.push(url.toString());
+            }
+            var playitems = JSON.stringify(items);
+            var playidx = g_playMusic.playlist.currentIndex;
+            var iseek = g_playMusic.position;
+            if(g_settings.history !== ''){
+                var history = JSON.parse(g_settings.history);
+                for(i = 0; i < history.length; i++){
+                    var info = history[i];
+                    if(info.name === g_playMusic.listname){
+                        history[i].items = playitems;
+                        history[i].seekpos = iseek;
+                        history[i].playidx = playidx;
+                        g_settings.history = JSON.stringify(history);
+                        console.log(g_settings.history);
+                        return;
+                    }
+                }
+                history.push({name:g_playMusic.listname, items:playitems, seekpos:iseek, playidx:playidx});
+                g_settings.history = JSON.stringify(history);
+                console.log(g_settings.history);
+            }else{
+                var history = [];
+                history.push({name:g_playMusic.listname, items:playitems, seekpos:iseek, playidx:playidx});
+                g_settings.history = JSON.stringify(history);
+                console.log(g_settings.history);
+            }
+        }
+        function resetPlayList(items, name, save){
+            console.log('items:'+name+',save:'+save);
+//            if(listname !== '' && listname !== name && save){
+//                dlgTip.params = {"name":name, "items":items};
+//                dlgTip.open();
+//                return;
+//            }
             var pltxt = JSON.stringify({name:name, items:items});
             if(g_settings.playlist !== pltxt){
                 g_settings.playlist = pltxt;
@@ -103,6 +141,12 @@ ApplicationWindow {
 
         function playIndex(idx, iseek, bplay){
             console.log('idx:'+idx+',iseek:'+iseek+',on:'+bplay);
+//            if(dlgTip.visible){
+//                dlgTip.params['idx'] = idx;
+//                dlgTip.params['iseek'] = iseek;
+//                dlgTip.params['bplay'] = bplay;
+//                return;
+//            }
             playlist.currentIndex = idx;
             if(iseek > 0){
                 seek(iseek);
@@ -165,6 +209,26 @@ ApplicationWindow {
         onDisconnected:{
             console.log('device.disconnect:'+device);
             g_playMusic.pause();
+        }
+    }
+
+    KxMessageBox{
+        id:dlgTip
+        title:'提示'
+        content:'切换到其它列表前是否保存当前进度？'
+        okText:'保存'
+        cancelText: '不保存'
+
+        property var params
+
+        onResult:{
+            if(val === 1){
+                g_playMusic.savePlayProcess();
+                g_playMusic.resetPlayList(params['items'], params['name'], false);
+                if(typeof(params['idx']) !== 'undefined'){
+                    g_playMusic.playIndex(params['idx'], params['iseek'], params['bplay']);
+                }
+            }
         }
     }
 

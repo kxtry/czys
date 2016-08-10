@@ -287,18 +287,19 @@ Page {
                         console.log('stopped');
                     }
 
-                    ToolButton {
-                        id:tbHistory
-                        text:"\ue656"
-                        font.family: "iconfont"
-                        font.pixelSize: 30
-                        onClicked: {
-                            dlgHistory.open();
-                        }
-                    }
-
                     Item{
                         Layout.fillWidth: true
+                    }
+
+                    ToolButton {
+                        id:tbSave
+                        text:"\ue66f"
+                        font.family: "iconfont"
+                        font.pixelSize: 32
+                        onClicked: {
+                            g_playMusic.savePlayProcess();
+                            ToolTip.show('已经更新', 1500);
+                        }
                     }
 
                     ToolButton {
@@ -333,8 +334,14 @@ Page {
                         }
                     }
 
-                    Item{
-                        Layout.preferredWidth: tbHistory.width
+                    ToolButton {
+                        id:tbHistory
+                        text:"\ue65b"
+                        font.family: "iconfont"
+                        font.pixelSize: 30
+                        onClicked: {
+                            dlgHistory.open();
+                        }
                     }
 
                     Item{

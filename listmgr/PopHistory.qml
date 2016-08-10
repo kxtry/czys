@@ -230,7 +230,7 @@ Popup {
                     }
 
                     var info = historyListModel.get(listView.currentIndex);
-                    g_playMusic.resetPlayList(JSON.parse(info.items), info.name);
+                    g_playMusic.resetPlayList(info.items, info.name, true);
                     g_playMusic.playIndex(info.playidx, info.seekpos, false);
                     dlgPopup.close();
                 }

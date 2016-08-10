@@ -100,7 +100,7 @@ Pane {
                                 musics.push(url);
                             }
                             //console.log('musics:' + JSON.stringify(musics));
-                            g_playMusic.resetPlayList(musics, listName);
+                            g_playMusic.resetPlayList(musics, listName, true);
                             g_playMusic.playIndex(index, 0, true);
                         }
                     }
